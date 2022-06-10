@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "stable"
+  - "10"
+  - "8"
+
+script:
+  - 'if [ $TRAVIS_NODE_VERSION == stable ]; then npm run test:lint; fi'
+  - npm run test:node
+  - xvfb-run --auto-servernum npm run test:browser
+services:
+  - xvfb

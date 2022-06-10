@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "browserify util.js --s bundle > bundle.js"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "chart.js": "^3.8.0",
+    "perf-hooks-browserify": "git+https://github.com/browserify/perf-hooks-browserify.git",
+    "perf_hooks": "0.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0"
+  }
+}

@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="bundle.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.98.0">
+  <title>Code Complexity Run TImes</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/starter-template/">
+
+
+
+
+
+  <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="starter-template.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="col-lg-8 mx-auto p-3 py-md-5">
+    <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">CODE COMPLEXITY</span>
+      </a>
+    </header>
+
+    <main>
+      <h1 style="text-align:center; margin:5%">Running Times Examples</h1>
+
+
+
+
+      <div class="row g-5 main">
+        <div class="col-md-6">
+          <canvas id="constantChart" width="400" height="400"></canvas>
+          <ul class="icon-list ps-0">
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <h2 style="text-align:center">Constant O(1)</h2>
+          </div>
+          <div class="row" style="margin:20%">
+            <button id='constant' type="button" onClick="buttonHandler(this.id)" class="btn btn-success">Run Me</button>
+          </div>
+          <div class="row" style="margin:2%">
+            <p style="text-align:center" class="timer" id="constantTimer">00:00:00</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row g-5 main">
+        <div class="col-md-6">
+          <canvas id="linearChart" width="400" height="400"></canvas>
+          <ul class="icon-list ps-0">
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <h2 style="text-align:center">Linear O(n)</h2>
+          </div>
+          <div class="row" style="margin:20%">
+            <button id='linear' type="button" onClick="buttonHandler(this.id)" class="btn btn-success">Run Me</button>
+          </div>
+          <div class="row" style="margin:2%">
+            <p style="text-align:center" class="timer" id="linearTimer">00:00:00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-5 main">
+        <div class="col-md-6">
+          <canvas id="quadraticChart" width="400" height="400"></canvas>
+          <ul class="icon-list ps-0">
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <h2 style="text-align:center">Quadratic O(n<sup>2</sup>)</h2>
+          </div>
+          <div class="row" style="margin:20%">
+            <button id='quadratic' type="button" onClick="buttonHandler(this.id)" class="btn btn-success">Run
+              Me</button>
+          </div>
+          <div class="row" style="margin:2%">
+            <p style="text-align:center" class="timer" id="quadraticTimer">00:00:00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-5 main">
+        <div class="col-md-6">
+          <canvas id="exponentialChart" width="400" height="400"></canvas>
+          <ul class="icon-list ps-0">
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <h2 style="text-align:center">Exponential O(2<sup>n</sup>)</h2>
+          </div>
+          <div class="row" style="margin:20%">
+            <button id='exponential' type="button" onClick="buttonHandler(this.id)" class="btn btn-success">Run
+              Me</button>
+          </div>
+          <div class="row" style="margin:2%">
+            <p style="text-align:center" class="timer" id="exponentialTimer">00:00:00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-5 main">
+        <div class="col-md-6">
+          <canvas id="factorialChart" width="400" height="400"></canvas>
+          <ul class="icon-list ps-0">
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <h2 style="text-align:center">Factorial O(n!)</h2>
+          </div>
+          <div class="row" style="margin:20%">
+            <button id='factorial' type="button" onClick="buttonHandler(this.id)" class="btn btn-success">Run
+              Me</button>
+          </div>
+          <div class="row" style="margin:2%">
+            <p style="text-align:center" class="timer" id="factorialTimer">00:00:00</p>
+          </div>
+        </div>
+      </div>
+
+
+
+    </main>
+    <footer class="pt-5 my-5 text-muted border-top">
+      Created using the Bootstrap Starter Example &middot; &copy; 2022
+    </footer>
+  </div>
+  <script type="module">
+    window.callWebWorker = (interval, id) => {
+      let fileName = `./WW${id}.js`
+      let w;
+      if (typeof (Worker) !== "undefined") {
+        if (typeof (w) == "undefined") {
+          let w = new Worker(fileName);
+          w.postMessage(arrays[id])
+          w.onmessage = (e) => {
+            let chart = retrieveChart(id);
+
+            e.data.map(entry => entry.duration).map(duration => {
+              chart.data.datasets.forEach((dataset) => {
+                dataset.data.push(duration);
+              });
+            })
+
+            chart.data.labels = []
+            e.data.map(entry => entry.iterations).map(label => {
+              chart.data.labels.push(label);
+            })
+            chart.update();
+            clearInterval(interval);
+          }
+        }
+
+      } else {
+        console.log(`Webworker call failed - ${id}`);
+        clearInterval(interval);
+      }
+    }
+  </script>
+  <script>
+    window.retrieveChart = id => {
+      switch (id) {
+        case 'constant':
+          return constantChart
+          break;
+        case 'linear':
+          return linearChart
+          break;
+        case 'quadratic':
+          return quadraticChart
+          break;
+        case 'exponential':
+          return exponentialChart
+          break;
+        case 'factorial':
+          return factorialChart
+          break;
+      }
+
+    }
+  </script>
+  <script>window.timers = {};
+    window.arrays = {};
+    window.maxInput = {
+      constant: 100000,
+      linear: 100000,
+      quadratic: 8000,//234567 21 321456 46
+      exponential: 46,//45   17000 total of 41 || 46 26000 total of 67
+      factorial: 12, // 12 7000 13 99000 ~ 106000
+    }
+
+    window.nodes = {
+      constant: 100,
+      linear: 100,
+      quadratic: 40,
+      exponential: 1,
+      factorial: 1
+    }
+
+    window.charts = {};
+
+
+    function getArrays(iterations,id, funct) {
+      let w;
+      if (typeof (Worker) !== "undefined") {
+        if (typeof (w) == "undefined") {
+          let w = new Worker("./WWarrays.js");
+          w.postMessage(iterations)
+          w.onmessage = (e) => {
+            arrays[id] = e.data;
+            let timerInterval = stopwatchHandler(id);
+            callWebWorker(timerInterval, id);
+          }
+        }
+
+      } else {
+        console.log('No Arrays');
+      }
+    }
+    
+    window.buildIterations = (id) => {
+    let increments = maxInput[id] / nodes[id]
+    return Array.from({ length: nodes[id] }, (v, i) =>  String((i+1) * increments).replaceAll(/0/g, Math.floor((Math.random() * 10))));
+
+    }
+
+
+
+    window.disableButton = (id) => {
+      document.getElementById(id).disabled = true;
+      document.getElementById(id).className = "btn btn-danger";
+      document.getElementById(id).textContent = "Running";
+    }
+
+
+    window.buttonHandler = (id, funct) => {
+      disableButton(id);
+      let iterations = buildIterations(id);
+      getArrays(iterations, id, funct);
+
+    }
+
+    window.timerHandler = (timer, idTimer) => {
+      let m = timers[idTimer].m
+      let s = timers[idTimer].s
+      let ms = timers[idTimer].ms
+      timer.textContent = `${m < 10 ? "0" + m : m}:${s < 10 ? "0" + s : s}:${ms < 10 ? "0" + ms : ms}`
+      timers[idTimer].ms++
+      if (ms == 100) {
+        timers[idTimer].ms = 0;
+        timers[idTimer].s++;
+      }
+      if (s == 60) {
+        timers[idTimer].s = 0;
+        timers[idTimer].m++;
+      }
+    }
+
+    window.stopwatchHandler = (id) => {
+      let idTimer = id + "Timer";
+      timers[idTimer] = { m: 0, s: 0, ms: 0 }
+      let timer = document.getElementById(idTimer);
+      return setInterval(window.timerHandler, 10, timer, idTimer);
+    }
+  </script>
+
+  <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const constantChart = new Chart(
+      document.getElementById('constantChart'),
+      {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Constant Run Time',
+            backgroundColor: 'rgb(14, 54, 96)',
+            borderColor: 'rgb(14, 54, 96)',
+            data: [],
+          }]
+        },
+        options: {}
+      }
+    );
+
+    const linearChart = new Chart(
+      document.getElementById('linearChart'),
+      {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Lienar Run Time',
+            backgroundColor: 'rgb(49, 174, 223)',
+            borderColor: 'rgb(49, 174, 223)',
+            data: [],
+          }]
+        },
+        options: {}
+      }
+    );
+
+    const quadraticChart = new Chart(
+      document.getElementById('quadraticChart'),
+      {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Quadratic Run Time',
+            backgroundColor: 'rgb(22, 74, 123)',
+            borderColor: 'rgb(22, 74, 123)',
+            data: [],
+          }]
+        },
+        options: {}
+      }
+    );
+
+    const exponentialChart = new Chart(
+      document.getElementById('exponentialChart'),
+      {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Exponential Run Time',
+            backgroundColor: 'rgb(14, 54, 96)',
+            borderColor: 'rgb(14, 54, 96)',
+            data: [],
+          }]
+        },
+        options: {}
+      }
+    );
+
+    const factorialChart = new Chart(
+      document.getElementById('factorialChart'),
+      {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Factorial Run Time',
+            backgroundColor: 'rgb(49, 174, 223)',
+            borderColor: 'rgb(49, 174, 223)',
+            data: [],
+          }]
+        },
+        options: {}
+      }
+    );
+
+  </script>
+</body>
+
+</html>

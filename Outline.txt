@@ -1,0 +1,66 @@
+Outline
+
+Intro - talk about the main points 
+    Code Complexity - What is it and why its important runtime vs cyclomatic
+    Heat Death of the Universe - Limits of current computing and how NP and P work
+    Route Sequencing and Traveling Salesmen - Talk about implimentation of ESRI sequencing stop
+
+Code COomplexity - cyclomatic
+    Control Flow
+    All possibilities code can traverse - linerally independent paths the code can traverse
+
+Code Complexity - Runtime - different solutions as developers we use to solve problems SOLUTION FOCUSED
+    Very Brief talk on code notation and how it works from a math perspective
+        big O and graphs of code
+        Time it takes to complete vs the size of the input
+        Worse case, approaching highest term
+        Data size 
+        Operations
+        Make sure to mention n!
+        O(1) constant
+        O(log n)
+        O(n) linear 
+        O(nlogn)
+        O(n^2) quadratic
+        _________________________
+        O(2^n) exponential
+        O(n!) factorial
+
+        Decision problems - exploring the common problems faces by developers and their perceived execution time PROBLEM FOCUSED
+     P vs NP - a proof verifying one way or another carries $1M prize Milleninum Price problems
+        P = NP - Does this mean being able to quickly verify an answer indicate there has to be a as quick method to iterate a solution
+        p != np - NP cant be solved in Poly but can be verified - 
+
+
+        Polynomial - Decision problems that can be solved via a deterministic  sequence in polynomial time to the size of the input -
+             reasonably fast multiplication or sorting a list of names, mazes
+
+
+        nondeterministic polynomial - decisions problems that can be verified in polynomial time - can be checked in a reasonable amount of time
+                Vehicle Routing Job Scheduling, finding primes SAT
+        Example - Sudoku - can be difficult to solve but very quick to verify
+            As the grid gets larger, human verification grows polynomial where the alogrithms grow exponentionally 
+
+        NP-Complete - transformable to complete in polynomial? The hardest part of NP problems
+            Operations Research - integer programming and the traveling salesmen problem, protein structure prediction, knapsack?
+
+        OUTSIDE NP - if a chess move is the correct move or not
+
+        EXPTIME - exponential running time - moves in chess, checkers and go
+        Undecidable problems (Halting) - 
+        Can not be solved by any algorithm,
+         one input that will not produce a valid answwer, 
+         finish execution with no answer, or run until the heat death.
+
+        Traveling Salesmen and Vehicle Routing
+
+            Esri solution
+            ~200 routes for effenciency 
+            Resequence routes within a geofence of the perm routes
+            Nearest Neighbor other non-perm routes
+
+        deterministic and sequential
+
+Talk about cyclomatic complexity?
+    Nested conditions
+
