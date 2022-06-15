@@ -64,3 +64,24 @@ Code Complexity - Runtime - different solutions as developers we use to solve pr
 Talk about cyclomatic complexity?
     Nested conditions
 
+
+URLS for Some reference:
+GIS White Paper:        https://locationscience.ua.edu/People/Curtin/TGISTravSalesPenultimate.pdf
+Esri UK:                https://resource.esriuk.com/blog/routing-vehicles-in-arcgis-pro/
+Esri Docs:              https://webhelp.esri.com/arcgisdesktop/9.3/body.cfm?tocVisable=1&ID=4441&TopicName=Algorithms%20used%20by%20Network%20Analyst
+Esri Desktop Route:     https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/route.htm
+Esri Desktop:           https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/algorithms-used-by-network-analyst.htm#GUID-2A732430-E67E-4269-AB69-027A79EF9F75
+
+Wordle NP-Hard:         https://arxiv.org/abs/2203.16713
+MIT Super Mario:        https://www.technologyreview.com/2012/03/12/86179/super-mario-bros-proved-np-hard/
+
+Vehicle Routing Wiki:   https://en.wikipedia.org/wiki/Vehicle_routing_problem
+Quantum TSP:            https://physics.aps.org/articles/v10/s32
+TSP Wiki:               https://en.wikipedia.org/wiki/Travelling_salesman_problem#Heuristic_and_approximation_algorithms
+Time Complexity Wiki:   https://en.wikipedia.org/wiki/Time_complexity
+Time Complexity Chart:  https://people.cs.umass.edu/~immerman/descriptive_complexity.html
+HP Hardness:            https://en.wikipedia.org/wiki/NP-hardness
+HP Completeness:        https://en.wikipedia.org/wiki/NP-completeness
+Big O Javascript:       https://www.doabledanny.com/big-o-notation-in-javascript#2
+
+
