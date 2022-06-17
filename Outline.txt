@@ -77,6 +77,7 @@ MIT Super Mario:        https://www.technologyreview.com/2012/03/12/86179/super-
 
 Vehicle Routing Wiki:   https://en.wikipedia.org/wiki/Vehicle_routing_problem
 Quantum TSP:            https://physics.aps.org/articles/v10/s32
+Quantum TSP2:           https://www.ijert.org/research/travelling-salesperson-problem-with-quantum-computing-IJERTV9IS030107.pdf
 TSP Wiki:               https://en.wikipedia.org/wiki/Travelling_salesman_problem#Heuristic_and_approximation_algorithms
 Time Complexity Wiki:   https://en.wikipedia.org/wiki/Time_complexity
 Time Complexity Chart:  https://people.cs.umass.edu/~immerman/descriptive_complexity.html
